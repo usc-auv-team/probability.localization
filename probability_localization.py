@@ -4,6 +4,7 @@
 # Receive input from IMU - A 3d vector. (x,y,z) which is an absolute vector of the distance traveled from the calibrated point (0,0,0)
 # For now write a function to generate mock data
 import random
+import math
 
 x_imu = []
 y_imu = []
@@ -36,6 +37,7 @@ gate1_x = scale * 74
 gate1_y = scale * 43
 gate1_z = 100
 
+"""
 marker1_x = scale * 90
 marker1_y = scale * 44
 marker1_z = 100
@@ -70,9 +72,14 @@ cashInYellow1_z = 100
 
 cashInYellow2_x = scale * 136
 cashInYellow2_y = scale * 411
-cashInYellow2_z = 100
+cashInYellow2_z = 100"""
 # Calculate difference between computer vision + IMU vector and hardcoded vector
+result = (x_imu[0] - gate1_x)**2 + (y_imu[0] - gate1_y)**2 + (z_imu[0] - gate1_z)**2
+result = math.sqrt(result)
+#print(result)
 
+error_percent = 1 - (abs(result-d[0])/(result+d[0]))
+print(error_percent*p[0])
 # Scale probabiity downwards using Gaussian probability function
 
 # Output - Relative location of the Observed Object, in the format of Angles, distance and probability (x,y,z), d,  p

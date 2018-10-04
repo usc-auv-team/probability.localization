@@ -23,7 +23,7 @@ cpd_MC = TabularCPD('MaryCalls', 2, [[0.99, 0.30],[0.01, 0.70]], evidence = ['Al
 G.add_cpds(cpd_burglary, cpd_earthquake, cpd_alarm)
 #print(G.check_model())
 
-d = {'Burglary': [0], 'Alarm': [1]}
+d = {'Burglary': [1, 1], 'Alarm': [1, 1]}
 df = pd.DataFrame(data = d)
 
 #values = pd.DataFrame(columns = 'Burglary': [0, 1], 'Alarm': [1, 1])
