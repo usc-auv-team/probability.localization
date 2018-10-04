@@ -19,11 +19,11 @@ cpd_JC = TabularCPD('JohnCalls', 2, [[0.95, 0.10],[0.05, 0.90]], evidence = ['Al
 cpd_MC = TabularCPD('MaryCalls', 2, [[0.99, 0.30],[0.01, 0.70]], evidence = ['Alarm'], evidence_card=[2])
 #print(cpd_MC)
 #print(G.check_model())
-G.add_cpds(cpd_burglary, cpd_earthquake, cpd_alarm, cpd_JC, cpd_MC)
-#G.add_cpds(cpd_burglary, cpd_earthquake, cpd_alarm)
+#G.add_cpds(cpd_burglary, cpd_earthquake, cpd_alarm, cpd_JC, cpd_MC)
+G.add_cpds(cpd_burglary, cpd_earthquake, cpd_alarm)
 #print(G.check_model())
 
-d = {'Burglary': [0], 'Alarm': [1, 1]}
+d = {'Burglary': [0], 'Alarm': [1]}
 df = pd.DataFrame(data = d)
 
 #values = pd.DataFrame(columns = 'Burglary': [0, 1], 'Alarm': [1, 1])
